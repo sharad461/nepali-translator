@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, url_for, redirect
 from os import environ
+from speech import rec
 
 app = Flask(__name__)
 
@@ -12,6 +13,11 @@ def index():
 @app.route('/translate')
 def translate():
 	return render_template("translate.html", title="Translate", active="translate")
+
+@app.route('/listen')
+def listen():
+	record = rec()
+	return render_template("listen.html", title="Listen", data=record)
 
 @app.route('/about')
 def about():
