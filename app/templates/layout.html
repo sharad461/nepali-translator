@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{title}}</title>    
+	<meta name="viewport" content="width=device-width, initial-scale=1">		
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename="style.css" )}}">
+</head>
+<body>	
+	{%include 'includes/_navbar.html'%}
+	{% block text %}{% endblock %}
+</body>
+</html>

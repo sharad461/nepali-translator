@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+{% block text %}
+	<div id="cnt-bg">
+		<select class="langselect">
+			<option>English to Nepali</option>
+			<option>Nepali to English</option>
+		</select>
+		<button class="text" style="margin-left:5%">Use Speech-to-Text</button>
+	<div id="container">
+		<textarea id="transbox" placeholder="Enter text" autofocus></textarea>
+		<textarea id="transbox" disabled></textarea>
+		<div class="bottom-tool"><button class="text">Saved Translations</button><button class="text">History</button><button class="text">Rate us</button></div>
+	</div>
+	</div>
+{% endblock %}
