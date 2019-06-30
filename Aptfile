@@ -1,0 +1,2 @@
+portaudio19-dev
+python-all-dev
