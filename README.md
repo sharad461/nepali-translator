@@ -2,7 +2,7 @@
 
 The parallel data can be downloaded from [here](https://drive.google.com/open?id=1UThfJKJFvDgTu263DNbz-WPNLqoARZ_0).
 
-`Report.pdf` details the work.
+The report is available [here](https://drive.google.com/open?id=16F4e1Wr3ElosFnoVfZrEId4N0be2JPG4).
 
 `data_cleaning` directory has the scripts that implement the cleaning methods discussed in the report.
 
