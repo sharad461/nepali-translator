@@ -71,7 +71,7 @@ ul li.active a{
 
 .transbox {
 	width:552px;
-	min-height:250px;
+	min-height:225px;
 	padding:18px;
 	font-size:24px;
 	margin:16px 0px 16px 1px;
@@ -109,8 +109,8 @@ ul li.active a{
 }
 
 .bottom-tool {
-	width: 39%;
-	margin: 5% auto 5% auto;
+	margin: 5% 0;
+	text-align: center;
 }
 
 #loader {
@@ -120,4 +120,8 @@ ul li.active a{
     margin-left: 1%;
     visibility: hidden;
     margin-top: 1.5%;
+}
+
+.hidden {
+	visibility: hidden;
 }

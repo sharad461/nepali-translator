@@ -1,0 +1,3 @@
+These are the scripts used to clean the data that went on to form the 151k parallel corpus.
+
+functions.py is the file that has main methods. Other files make use of these methods to clean the data.

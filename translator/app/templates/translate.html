@@ -1,0 +1,105 @@
+{% extends 'layout.html' %}
+{% block text %}
+	<div id="cnt-bg">
+		<select class="langselect" onchange="location = this.value;">
+			<option{%if type=="ne_en"%} selected{%endif%} value="ne-en">Nepali to English</option>
+			<option{%if type=="en_ne"%} selected{%endif%} value="en-ne">English to Nepali</option>
+		</select>
+		{%if type=="en_ne"%}<button class="text" id="listen">Use Speech-to-Text</button><img id="loader" src="{{url_for('static', filename="810.gif" )}}"/>{%endif%}
+	<div id="container">
+		<textarea class="transbox" id="srclang" placeholder="Enter text" autofocus></textarea>
+		<textarea class="transbox" id="targetlang" readonly></textarea><button class="text hidden" id="save">Save</button>
+		<div class="bottom-tool"><a href="/saved" target="_blank"><button class="text">Saved Translations</button></a><a href="/history" target="_blank"><button class="text">History</button></a><button class="text">Rate us</button></div>
+	</div>
+	</div>
+{% endblock %}
+{% block javascript %}
+<script type="text/javascript">
+	if (document.querySelector("#listen")) {
+		function done_listening(){
+			rec.style = "color:#555";
+			rec_on = false;
+			document.querySelector("#loader").style.visibility = "hidden";
+		}
+		
+		let rec = document.querySelector("#listen");
+		let rec_on = false;
+
+		rec.addEventListener('click', function() {
+			if (rec_on == false) {
+				rec.style = "color:red";
+				document.querySelector("#loader").style.visibility = "visible";
+				rec_on = true;
+				fetch("/listen", {method: 'get',
+						headers: {
+						'Accept': 'application/json',
+						'Content-Type': 'application/json'
+						}
+					}).then((r) => r.text()).then((text)=>{
+						document.querySelector("#srclang").innerHTML = text;
+						done_listening(); doneTyping();
+					}).catch(function(error){console.log(error); 				done_listening();});
+			}
+		});
+	}
+	
+	let typingTimer;                
+	let doneTypingInterval = 500; 
+	let srclang = document.querySelector('#srclang');
+
+	srclang.addEventListener('keyup', () => {
+		clearTimeout(typingTimer);
+		if (srclang.value.trim() && srclang.value.length > 0) {
+		    typingTimer = setTimeout(doneTyping, doneTypingInterval);
+		}
+	});
+
+	function doneTyping () {
+		document.querySelector("#targetlang").innerHTML = "[...]"
+		fetch("/translate"+{%if type=="en_ne"%}"/en-ne/"{%else%}"/ne-en/"{%endif%}+ srclang.value).then((r)=>r.text()).then((text)=>{
+			document.querySelector("#targetlang").innerHTML = text;
+			document.querySelector("#save").style.visibility = "visible";
+		}).catch(function(error){alert(error);})
+	}
+
+	document.querySelector("#save").addEventListener("click", () => {
+		fetch("/save/"+document.querySelector('#srclang').value+"/"+document.querySelector("#targetlang").value).then((r)=>r.text()).then((r)=>{
+			if (r == "s"){alert("Saved")} else {alert("Save failed. Try again.")}
+		})
+	})
+</script>{%if type=="ne_en"%}
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	<script type="text/javascript">
+
+      // Load the Google Transliterate API
+      google.load("elements", "1", {
+            packages: "transliteration"
+          });
+
+      function onLoad() {
+        var options = {
+            sourceLanguage:
+                google.elements.transliteration.LanguageCode.ENGLISH,
+            destinationLanguage:
+                [google.elements.transliteration.LanguageCode.NEPALI],
+            shortcutKey: 'ctrl+g',
+            transliterationEnabled: true
+        };
+
+        // Create an instance on TransliterationControl with the required
+        // options.
+        var control =
+            new google.elements.transliteration.TransliterationControl(options);
+
+        // Enable transliteration in the textbox with id
+        // 'transliterateTextarea'.
+        control.makeTransliteratable(['srclang'], {
+	      adjustElementStyle: false,
+	      adjustElementDirection: true
+	    });
+
+	    document.querySelector('#srclang').style = "font-size:24px;font-family:Roboto, Open Sans, Segoe UI, Georgia;line-height:auto;";
+      }
+      google.setOnLoadCallback(onLoad);
+ </script>{% endif %}
+{% endblock %}
