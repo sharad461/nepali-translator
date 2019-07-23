@@ -6,17 +6,20 @@ The report is available [here](https://drive.google.com/open?id=16F4e1Wr3ElosFno
 
 `data_cleaning` directory has the scripts that implement the cleaning methods discussed in the report.
 
-`translator` directory has a working interface for the translator. Model files that realize the BLEU scores mentioned in the report will be made available soon.
+`translator` directory has a working interface for the translator. 
 
 ## Requirements
 * torch
 * fairseq
 * sentencepiece
 * sacremoses
-* [indic_nlp_library](https://github.com/anoopkunchukuttan/indic_nlp_library) [copy to `translator/modules/indic_nlp_library`]
+* [indic_nlp_library](https://github.com/anoopkunchukuttan/indic_nlp_library) [copy to `translator/app/modules/indic_nlp_library`]
 * flask
 * lxml
 * python-docx
+
+## Training models
+After training a model using the fairseq implementation of Transformer, copy the checkpoint file to `translator/app/models/` and rename it `en-ne.pt` or `ne-en.pt` based on the translation direction of the checkpoint file.
 
 After requirements and models are in place, run `python app/app.py` from `translator` directory.
 
