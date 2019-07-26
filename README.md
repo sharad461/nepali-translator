@@ -19,7 +19,7 @@ The report is available [here](https://drive.google.com/open?id=16F4e1Wr3ElosFno
 * python-docx
 
 ## Training models
-After training a model using the fairseq implementation of Transformer, copy the checkpoint file to `translator/app/models/` and rename it `en-ne.pt` or `ne-en.pt` based on the translation direction of the checkpoint file. The checkpoint files that realize the results in the report are available [here](https://drive.google.com/open?id=10uYpiOtjFlw-VdZox7PphhIjZ1ayCFRm). Copy the `.pt` files to `translator/app/models`.
+After training a model using the fairseq implementation of Transformer, copy the checkpoint file to `translator/app/models/` and rename it `en-ne.pt` or `ne-en.pt` based on the translation direction of the checkpoint file. The checkpoint files that realize the results in the report are available [here](https://drive.google.com/open?id=1Ix8lPhheLym_4Hpk3v-8cbf7oJ9YW4Eg). Copy the `.pt` files to `translator/app/models`.
 
 After requirements and models are in place, run `python app/app.py` from `translator` directory.
 
