@@ -2,11 +2,13 @@
 
 Neural Machine Translation (NMT) on the Nepali-English language pair. 
 
-Contributions of this project: adding to and cleaning the parallel data that is publicly available and improving the baseline achieved by [Guzman et al (2019)](https://www.aclweb.org/anthology/D19-1632/). They collected the data for the [parallel corpus filtering task for WMT19](http://www.statmt.org/wmt19/parallel-corpus-filtering.html). On the September 2019 update to their paper, they add scores they obtained using multilingual MT methods (leveraging Hindi parallel and monolingual data), but their scores for fully-supervised Nepali-English MT still stand at (BLEU) 7.6 (NE-EN) and 4.3 (EN-NE) - both of which our models surpass in this project.
+Contributions of this project: adding to and cleaning the parallel data that is publicly available and improving the baseline for supervised MT on the Ne-En pair. 
 
-The report is available [here](https://drive.google.com/open?id=16F4e1Wr3ElosFnoVfZrEId4N0be2JPG4).
+[Guzman et al (2019)](https://www.aclweb.org/anthology/D19-1632/) collected the data for the [parallel corpus filtering task for WMT19](http://www.statmt.org/wmt19/parallel-corpus-filtering.html) and provided baseline scores. In the September 2019 update to their paper (update log at the [arXiv entry](https://arxiv.org/abs/1902.01382)), they added scores they obtained using multilingual MT methods (leveraging Hindi parallel and monolingual data), but their scores for fully-supervised Nepali-English MT still stand at (BLEU) 7.6 (NE-EN) and 4.3 (EN-NE) - both of which our models surpass in this project.
 
-The clean parallel data can be downloaded from [here](https://drive.google.com/open?id=1UThfJKJFvDgTu263DNbz-WPNLqoARZ_0).
+A report on this project is available [here](https://drive.google.com/open?id=16F4e1Wr3ElosFnoVfZrEId4N0be2JPG4).
+
+The parallel data we cleaned can be downloaded from [here](https://drive.google.com/open?id=1UThfJKJFvDgTu263DNbz-WPNLqoARZ_0).
 
 `data_cleaning` directory has the scripts that implement the cleaning methods discussed in the report.
 
@@ -18,13 +20,17 @@ The BLEU scores of 7.6 and 4.3 (for supervised methods) that Guzman et al report
 
 Here we report the scores on both `dev` and `devtest` sets.
 
-### On `dev` set
+#### On `dev` set
 |Models   |Corpus size  |NE-EN   |EN-NE   |
 |---|---|---|---|
 |Guzman et al. (2019)   |564k   |5.24   |2.98   |
 |This work   |150k   |12.26   |6.0   |
 
-### On `devtest` set
+#### On `devtest` set
+|Models   |NE-EN   |EN-NE   |
+|---|---|---|
+|Guzman et al. (2019)   |7.6   |4.3  |
+|This work   |   | 6.58 |
 
 ## Requirements
 
@@ -35,18 +41,20 @@ Here we report the scores on both `dev` and `devtest` sets.
 * `flask`
 * `indic_nlp_library`
 
-Fairseq does the heavy-lifting for training the models, sentencepiece is used to learn BPE over the data, sacremoses for treating English text, sacrebleu for scoring the models, flask for the interface. For handling the Nepali text, we use the [Indic NLP Library](https://github.com/anoopkunchukuttan/indic_nlp_library).
+Fairseq is used for training, sentencepiece is used to learn BPE over the corpus, sacremoses for treating English text, sacrebleu for scoring the models, flask for the interface. For handling the Nepali text, we use the [Indic NLP Library](https://github.com/anoopkunchukuttan/indic_nlp_library).
 
-Install all the libraries using `pip install`. Indic NLP Library, you need to clone to `translator/app/modules/`.
+All the libraries can be installed using `pip`.
+
+To be able to run the translator interface, Indic NLP Library needs to be cloned to `translator/app/modules/`.
 
 There are other libraries like `python-docx` and `lxml` used by the cleaning scripts.
 
-## Training models
+## Preparing translator
 After training a model using the fairseq implementation of Transformer, copy the checkpoint file to `translator/app/models/` and rename it `en-ne.pt` or `ne-en.pt` based on the translation direction of the checkpoint file. The checkpoint files that realize the results in the report are available [here](https://drive.google.com/open?id=1Ix8lPhheLym_4Hpk3v-8cbf7oJ9YW4Eg). Copy the `.pt` files to `translator/app/models`.
 
 After requirements and models are in place, run `python app/app.py` from `translator` directory.
 
-Details on the training itself can be obtained from fairseq [repo](https://github.com/pytorch/fairseq) or [documentation](https://fairseq.readthedocs.io).
+Details on the training itself can be obtained from fairseq [repo](https://github.com/pytorch/fairseq) or [documentation](https://fairseq.readthedocs.io). The [FLORES github](https://github.com/facebookresearch/flores/) is also useful.
 
 ## Sample translations
 
@@ -64,6 +72,17 @@ Details on the training itself can be obtained from fairseq [repo](https://githu
 | System  | Technical authors also write about various procedures for commercial , professional or domestic use . |
 
 ### EN-NE
+| Type | Sentence |
+|---|---|
+| Source  | Obama's language is sophisticated , Putin speaks directly and prefers to use punctuation and statistics , but both have the same ability to win the audience's heart . |
+| Reference  | ओबामाको भाषा परिस्कृत छ , पुटिन ठाडो भाषामा तुक्का र तथ्याङ्क प्रयोग गरेर बोल्न रुचाउँछन् , तर दुवैसँग श्रोताको हृदयलाई तरंगित गर्ने समान क्षमता छ । |
+| System  | ओबामाको भाषा परिस्कृत छ , पुटिन प्रत्यक्ष रूपमा वाचन र तथ्याङ्क प्रयोग गर्न प्राथमिकता दिन्छ , तर दुवै श्रोताको मुटु जित्न एउटै क्षमता छ । |
+
+| Type | Sentence |
+|---|---|
+| Source  | Litti Chokha is prepared by stuffing buckwheat flour mixed with various spices in dough and toasting it in fire , and is served with spice paste . |
+| Reference  | लिट्टी चोखा - लिट्टी जुन आंटा भित्र सत्तू तथा मसला हालेर आगोमा सेकेर बनाईन्छ , को चोखे सँग पस्किइन्छ । |
+| System  | लोती चोखोका विभिन्न मसला मिसाएर बकवाहेट फूल मिसाएर तयार पारिन्छ र यसलाई आगोमा टाँस्न र मसला टाँस्ने सेवा गरिन्छ । |
 
 ## Citation
 If you use any part of this project in your work, please cite:
