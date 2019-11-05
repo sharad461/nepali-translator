@@ -51,10 +51,14 @@ Details on the training itself can be obtained from fairseq [repo](https://githu
 ## Sample translations
 
 ### NE-EN
+| Type | Sentence |
+|---|---|
 | Source  | ठूला गोदामहरुले, यस क्षेत्रका साना साना धेरै निर्माता हरु द्वारा बनाईएका जुत्ताहरु भण्डार गर्न थाले  । |
 | Reference  | Large warehouses began to stock footwear in warehouses , made by many small manufacturers from the area .   |
 | System  | Large warehouses began to store shoe made by small producers of this area . |
 
+| Type | Sentence |
+|---|---|
 | Source  | प्राविधिक लेखकहरूले पनि व्यापारिक, पेशागत वा घरेलु प्रयोगका लागि विभिन्न कार्यविधिहरूका बारे लेख्दछन्। |
 | Reference  | Technical writers also write various procedures for business , professional or domestic use . |
 | System  | Technical authors also write about various procedures for commercial , professional or domestic use . |
