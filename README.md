@@ -2,13 +2,15 @@
 
 Neural Machine Translation (NMT) on the Nepali-English language pair. 
 
-Contributions of this project: adding to and cleaning the parallel data that is publicly available and improving the baseline for supervised MT on the Ne-En pair. 
+Contributions of this project: adding to and cleaning the parallel data that is publicly available and improving the baseline for supervised MT on the pair. 
 
-[Guzman et al (2019)](https://www.aclweb.org/anthology/D19-1632/) collected the data for the [parallel corpus filtering task for WMT19](http://www.statmt.org/wmt19/parallel-corpus-filtering.html) and provided baseline scores. In the September 2019 update to their paper (update log at the [arXiv entry](https://arxiv.org/abs/1902.01382)), they added scores they obtained using multilingual MT methods (leveraging Hindi parallel and monolingual data), but their scores for fully-supervised Nepali-English MT still stand at (BLEU) 7.6 (NE-EN) and 4.3 (EN-NE) - both of which our models surpass in this project.
+[Guzman et al (2019)](https://www.aclweb.org/anthology/D19-1632/) collected data from various sources like Linux distro translations, Bible, etc. for the [parallel corpus filtering task for WMT19](http://www.statmt.org/wmt19/parallel-corpus-filtering.html). A more comprehensive list of data sources is given in the WMT19 parallel corpus task page itself. In addition to the corpus, they provided baseline scores for supervised, semi-supervised, and unsupervised MT.
+
+In the September 2019 update to their paper, Guzman et al added scores they obtained using multilingual MT methods (leveraging Hindi parallel and monolingual data), but their scores for fully-supervised Nepali-English MT still stand at (BLEU) 7.6 (NE-EN) and 4.3 (EN-NE) - both of which our models surpass in this project.
 
 A report on this project is available [here](https://drive.google.com/open?id=16F4e1Wr3ElosFnoVfZrEId4N0be2JPG4).
 
-The parallel data we cleaned can be downloaded from [here](https://drive.google.com/open?id=1UThfJKJFvDgTu263DNbz-WPNLqoARZ_0).
+The parallel data we prepared can be found [here](https://drive.google.com/open?id=1UThfJKJFvDgTu263DNbz-WPNLqoARZ_0).
 
 `data_cleaning` directory has the scripts that implement the cleaning methods discussed in the report.
 
