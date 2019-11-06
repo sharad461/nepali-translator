@@ -18,9 +18,7 @@ The parallel data we prepared can be found [here](https://drive.google.com/open?
 
 ## Results
 
-The BLEU scores of 7.6 and 4.3 (for supervised methods) that Guzman et al report in their paper are on their `devtest` set. There are actually two more sets they release: the validation set called `dev` set and the recently released (October 2019) `test` set. In the report linked above, we report only the scores on the `dev` set. We reproduce the their model using their [implementation](https://github.com/facebookresearch/flores/) to score it. 
-
-Here we report the scores on both `dev` and `devtest` sets.
+The BLEU scores of 7.6 and 4.3 (for supervised methods) that Guzman et al report in their paper are on their `devtest` set. There are actually two more sets they release: the validation set called `dev` set and the recently released (October 2019) `test` set. In the report linked above, we report only the scores on the `dev` set. We reproduce their model using their [implementation](https://github.com/facebookresearch/flores/) to score it. Here we report the scores on both `dev` and `devtest` sets.
 
 #### On `dev` set
 |Models   |Corpus size  |NE-EN   |EN-NE   |
@@ -32,7 +30,7 @@ Here we report the scores on both `dev` and `devtest` sets.
 |Models   |NE-EN   |EN-NE   |
 |---|---|---|
 |Guzman et al. (2019)   |7.6   |4.3  |
-|This work   |   | 6.58 |
+|This work   |14.51   | 6.58 |
 
 ## Requirements
 
@@ -51,7 +49,7 @@ To be able to run the translator interface, Indic NLP Library needs to be cloned
 
 There are other libraries like `python-docx` and `lxml` used by the cleaning scripts.
 
-## Preparing translator
+## Preparing the translator
 After training a model using the fairseq implementation of Transformer, copy the checkpoint file to `translator/app/models/` and rename it `en-ne.pt` or `ne-en.pt` based on the translation direction of the checkpoint file. The checkpoint files that realize the results in the report are available [here](https://drive.google.com/open?id=1Ix8lPhheLym_4Hpk3v-8cbf7oJ9YW4Eg). Copy the `.pt` files to `translator/app/models`.
 
 After requirements and models are in place, run `python app/app.py` from `translator` directory.
