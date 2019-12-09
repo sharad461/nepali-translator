@@ -32,7 +32,7 @@ The BLEU scores of 7.6 and 4.3 (for supervised methods) that Guzman et al report
 |Guzman et al. (2019)   |7.6   |4.3  |
 |This work   |14.51   | 6.58 |
 
-(Note: The results on `devtest` can be reproduced using a vocab size of 2500.)
+The results on `devtest` are from models that use vocab sizes of 2500.
 
 ## Requirements
 
@@ -90,9 +90,10 @@ Details on the training itself can be obtained from fairseq [repo](https://githu
 If you use any part of this project in your work, please cite:
 
 ```bibtex
-@inproceedings{,
+@techreport{nepali-translator-2019,
   title={Nepali Translator},
   author={Duwal, Sharad and Manandhar, Amir and Maskey, Saurav and Hada, Subash},
+  institution={Kathmandu University},
   year={2019}
 }
 ```
