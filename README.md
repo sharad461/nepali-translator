@@ -2,11 +2,7 @@
 
 Neural Machine Translation (NMT) on the Nepali-English language pair. 
 
-Contributions of this project: adding to and cleaning the parallel data that is publicly available and improving the baseline for supervised MT on the pair. 
-
-[Guzman et al (2019)](https://www.aclweb.org/anthology/D19-1632/) collected data from various sources like Linux distro translations, Bible, etc. for the [parallel corpus filtering task for WMT19](http://www.statmt.org/wmt19/parallel-corpus-filtering.html). A more comprehensive list of data sources is given in the WMT19 parallel corpus task page itself. In addition to the corpus, they provided baseline scores for supervised, semi-supervised, and unsupervised MT.
-
-In the September 2019 update to their paper, Guzman et al added scores they obtained using multilingual MT methods (leveraging Hindi parallel and monolingual data), but their scores for fully-supervised Nepali-English MT still stand at (BLEU) 7.6 (NE-EN) and 4.3 (EN-NE) - both of which our models surpass in this project.
+Contributions of this project: adding to and cleaning the parallel data that is publicly available and improving the baseline scores for supervised MT on the pair. 
 
 A report on this project is available [here](https://drive.google.com/open?id=16F4e1Wr3ElosFnoVfZrEId4N0be2JPG4).
 
@@ -16,7 +12,16 @@ The parallel data we prepared can be found [here](https://drive.google.com/open?
 
 `translator` directory has a working interface for the translator. 
 
+## Updates
+
+Towards the end of 2019 some additional work was carried out under the project, described [here](https://lt4all.elra.info/proceedings/lt4all2019/pdf/2019.lt4all-1.94.pdf). The models reported in the paper can be found [here](https://drive.google.com/drive/folders/1zrfYJy62LfVp5RHv81ycyMaCbk6HMLN3). I will also add a link to the bigger corpus soon.
+
+As of Feb 2021, there are a few compatibility issues between the model files and the more recent versions of the packages. To fix these, use the following versions of the packages: `torch-1.3.0` `fairseq-0.9.0` `portalocker-2.0.0` `sacrebleu-1.4.14` `sacremoses-0.0.43` `sentencepiece-0.1.91`.
+
+
 ## Results
+
+**Find the more recent results in the paper linked above.**
 
 The BLEU scores of 7.6 and 4.3 (for supervised methods) that Guzman et al report in their paper are on their `devtest` set. There are actually two more sets they release: the validation set called `dev` set and the recently released (October 2019) `test` set. In the report linked above, we report only the scores on the `dev` set. We reproduce their model using their [implementation](https://github.com/facebookresearch/flores/) to score it. Here we report the scores on both `dev` and `devtest` sets.
 
@@ -97,5 +102,7 @@ If you use any part of this project in your work, please cite:
   year={2019}
 }
 ```
+
+Or you can cite the aforementioned [paper](https://lt4all.elra.info/proceedings/lt4all2019/pdf/2019.lt4all-1.94.pdf).
 
 For the completion of sixth semester in Computer Science program at Kathmandu University. July 2019.
