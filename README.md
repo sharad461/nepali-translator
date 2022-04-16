@@ -92,17 +92,6 @@ Details on the training itself can be obtained from fairseq [repo](https://githu
 | System  | लोती चोखोका विभिन्न मसला मिसाएर बकवाहेट फूल मिसाएर तयार पारिन्छ र यसलाई आगोमा टाँस्न र मसला टाँस्ने सेवा गरिन्छ । |
 
 ## Citation
-If you use any part of this project in your work, please cite:
-
-```bibtex
-@techreport{nepali-translator-2019,
-  title={Nepali Translator},
-  author={Duwal, Sharad and Manandhar, Amir and Maskey, Saurav and Hada, Subash},
-  institution={Kathmandu University},
-  year={2019}
-}
-```
-
-Or you can cite the aforementioned [paper](https://lt4all.elra.info/proceedings/lt4all2019/pdf/2019.lt4all-1.94.pdf).
+If you use any part of this project in your work, please cite this [paper](https://lt4all.elra.info/proceedings/lt4all2019/pdf/2019.lt4all-1.94.pdf).
 
 For the completion of sixth semester in Computer Science program at Kathmandu University. July 2019.
