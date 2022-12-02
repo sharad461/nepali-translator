@@ -6,7 +6,7 @@ Contributions of this project: adding to and cleaning the parallel data that is 
 
 A report on this project is available [here](https://drive.google.com/open?id=16F4e1Wr3ElosFnoVfZrEId4N0be2JPG4).
 
-The parallel data we prepared can be found [here](https://drive.google.com/open?id=1UThfJKJFvDgTu263DNbz-WPNLqoARZ_0).
+The parallel data we prepared can be found [here](https://drive.google.com/open?id=1UThfJKJFvDgTu263DNbz-WPNLqoARZ_0). The bigger (final) corpus can be found [here](https://drive.google.com/file/d/1FB3vlqlLXTEjyY28z7bmxMCG0oZxyeiU/view?usp=share_link).
 
 `data_cleaning` directory has the scripts that implement the cleaning methods discussed in the report.
 
@@ -14,7 +14,7 @@ The parallel data we prepared can be found [here](https://drive.google.com/open?
 
 ## Updates
 
-Towards the end of 2019 some additional work was carried out under the project, described [here](https://lt4all.elra.info/proceedings/lt4all2019/pdf/2019.lt4all-1.94.pdf). The models reported in the paper can be found [here](https://drive.google.com/drive/folders/1zrfYJy62LfVp5RHv81ycyMaCbk6HMLN3). I will also add a link to the bigger corpus soon.
+Towards the end of 2019 some additional work was carried out under the project, described [here](https://lt4all.elra.info/proceedings/lt4all2019/pdf/2019.lt4all-1.94.pdf). The models reported in the paper can be found [here](https://drive.google.com/drive/folders/1zrfYJy62LfVp5RHv81ycyMaCbk6HMLN3). I will also add a link to the bigger corpus soon: [link](https://drive.google.com/file/d/1FB3vlqlLXTEjyY28z7bmxMCG0oZxyeiU/view?usp=share_link).
 
 As of Feb 2021, there are a few compatibility issues between the model files and the more recent versions of the packages. To fix these, use the following versions of the packages: `torch-1.3.0` `fairseq-0.9.0` `portalocker-2.0.0` `sacrebleu-1.4.14` `sacremoses-0.0.43` `sentencepiece-0.1.91`.
 
