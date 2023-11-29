@@ -1,6 +1,6 @@
 # Nepali Translator
 
-Neural Machine Translation (NMT) on the Nepali-English language pair. 
+Neural Machine Translation (NMT) on the Nepali-English language pair. You can try it out [here](https://translation.ilprl.ku.edu.np/nep-eng/default).
 
 Contributions of this project: adding to and cleaning the parallel data that is publicly available and improving the baseline scores for supervised MT on the pair. 
 
@@ -41,10 +41,11 @@ The results on `devtest` are from models that use vocab sizes of 2500.
 
 ## Requirements
 
-* `fairseq`
-* `sentencepiece`
-* `sacremoses`
-* `sacrebleu`
+* `torch-1.3.0`
+* `fairseq-0.9.0`
+* `sentencepiece-0.1.91`
+* `sacremoses-0.0.43`
+* `sacrebleu-1.4.14`
 * `flask`
 * `indic_nlp_library`
 
